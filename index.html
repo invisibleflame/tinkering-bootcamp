@@ -1,23 +1,18 @@
-
-<!DOCTYPE html>
-<html>
+<!doctype html>
 <meta charset=utf-8>
-<head>
-	<title>Race Condition Example</title>
-</head>
-<body>
-
-</body>
-</html>
-
+<title>Race Condition Example</title>
 
 <script>
-  
+  function sleep(delay) {
+    var start = new Date().getTime();
+    while (new Date().getTime() < start + delay);
+  }
   var initialised = false;
   
   window.addEventListener("load", function() {
   	
     var newElement = document.createElement("p");
+    sleep(2000);
     newElement.textContent = "Hello from JavaScript!";
     document.body.appendChild(newElement);
     initialised = true;
